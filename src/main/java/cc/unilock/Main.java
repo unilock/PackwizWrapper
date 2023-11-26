@@ -40,5 +40,11 @@ public class Main {
             if (line == null) break;
             System.out.println(line);
         }
+
+        p.waitFor();
+
+        if (p.exitValue() != 0) {
+            System.exit(p.exitValue());
+        }
     }
 }
