@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'cc.unilock'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'cc.unilock.Main'
+        )
+    }
+}
