@@ -25,9 +25,9 @@ public class Main {
         ProcessBuilder builder = new ProcessBuilder();
         builder.redirectErrorStream(true);
         if (WINDOWS) {
-            builder.command("cmd.exe", "/c", java+" -jar packwiz-installer-bootstrap.jar "+url);
+            builder.command("cmd.exe", "/c", "\"\""+java+"\" -jar packwiz-installer-bootstrap.jar \""+url+"\"\"");
         } else {
-            builder.command("/bin/sh", "-c", java+" -jar packwiz-installer-bootstrap.jar "+url);
+            builder.command("/bin/sh", "-c", "\"\""+java+"\" -jar packwiz-installer-bootstrap.jar \""+url+"\"\"");
         }
         builder.directory(new File(path));
 
