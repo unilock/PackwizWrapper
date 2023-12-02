@@ -11,8 +11,8 @@ public class Main {
     // args[0] = "$INST_JAVA"
     // args[1] = "$INST_DIR"
     // args[2] = "$INST_MC_DIR"
-    // args[3] = "https://play.fennet.rentals/packwiz/<modpack_multimc>/pack.toml"
-    // args[4] = "https://play.fennet.rentals/packwiz/<modpack_minecraft>/pack.toml"
+    // args[3] = "https://example.com/packwiz/<modpack_multimc>/pack.toml"
+    // args[4] = "https://example.com/packwiz/<modpack_minecraft>/pack.toml"
     public static void main(String[] args) throws Exception {
         System.out.println("[INFO] Welcome to unilock's epic packwiz wrapper!");
         System.out.println("[INFO] We are "+(WINDOWS ? "" : "not ")+"on Windows nya~");
