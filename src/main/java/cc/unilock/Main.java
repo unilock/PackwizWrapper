@@ -9,7 +9,7 @@ public class Main {
     public static final boolean WINDOWS = System.getProperty("os.name").toLowerCase(Locale.ROOT).startsWith("windows");
 
     // args[0] = "$INST_JAVA"
-    // args[1] = "$INST_DIR"
+    // args[1] = "$INST_MC_DIR"
     // args[2] = "https://example.com/packwiz/<modpack_fabric>/pack.toml"
     // args[3] = "https://example.com/packwiz/<modpack_forge>/pack.toml"
     public static void main(String[] args) throws Exception {
