@@ -12,18 +12,21 @@ public class Main {
     // args[1] = "$INST_MC_DIR"
     // args[2] = "https://example.com/packwiz/<modpack_fabric>/pack.toml"
     // args[3] = "https://example.com/packwiz/<modpack_forge>/pack.toml"
+    // args[4] = optional packwiz-installer args
     public static void main(String[] args) throws Exception {
         System.out.println("[INFO] Welcome to unilock's epic packwiz wrapper!");
         System.out.println("[INFO] We are "+(WINDOWS ? "" : "not ")+"on Windows nya~");
 
-        runJavaCommand(args[0], args[1], args[2], "fabric", false);
-        runJavaCommand(args[0], args[1], args[3], "forge", true);
+        String packwizArgs = args.length == 5 ? args[4] : "";
+
+        runJavaCommand(args[0], args[1], args[2], "fabric", false, packwizArgs);
+        runJavaCommand(args[0], args[1], args[3], "forge", true, packwizArgs);
     }
 
-    private static void runJavaCommand(String java, String path, String url, String loader, boolean updateMMC) throws Exception {
+    private static void runJavaCommand(String java, String path, String url, String loader, boolean updateMMC, String packwizArgs) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
         builder.redirectErrorStream(true);
-        String cmd = "'"+java+"' -jar packwiz-installer-bootstrap.jar --meta-file 'packwiz-"+loader+".json' "+(updateMMC ? "" : "--multimc-folder 'null' ")+"'"+url+"'";
+        String cmd = "'"+java+"' -jar packwiz-installer-bootstrap.jar "+packwizArgs+" --meta-file 'packwiz-"+loader+".json' "+(updateMMC ? "" : "--multimc-folder 'null' ")+"'"+url+"'";
         if (WINDOWS) {
             builder.command("cmd.exe", "/c", cmd);
         } else {
