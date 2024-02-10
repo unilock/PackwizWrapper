@@ -26,7 +26,7 @@ public class Main {
     private static void runJavaCommand(String java, String path, String url, String loader, boolean updateMMC, String packwizArgs) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
         builder.redirectErrorStream(true);
-        String cmd = "'"+java+"' -jar packwiz-installer-bootstrap.jar "+packwizArgs+" --meta-file 'packwiz-"+loader+".json' "+(updateMMC ? "" : "--multimc-folder 'null' ")+"'"+url+"'";
+        String cmd = "\"\""+java+"\" -jar packwiz-installer-bootstrap.jar "+packwizArgs+" --meta-file \"packwiz-"+loader+".json\" "+(updateMMC ? "" : "--multimc-folder \"null\"")+" \""+url+"\"\"";
         if (WINDOWS) {
             builder.command("cmd.exe", "/c", cmd);
         } else {
