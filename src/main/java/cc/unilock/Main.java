@@ -24,10 +24,12 @@ public class Main {
     private static void runJavaCommand(String java, String path, String url) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
         builder.redirectErrorStream(true);
+        String cmd = "\""+java+"\" -jar packwiz-installer-bootstrap.jar \""+url+"\"";
+        System.out.println("[INFO] Command: "+cmd);
         if (WINDOWS) {
-            builder.command("cmd.exe", "/c", "\"\""+java+"\" -jar packwiz-installer-bootstrap.jar \""+url+"\"\"");
+            builder.command("cmd.exe", "/c", "\""+cmd+"\"");
         } else {
-            builder.command("/bin/sh", "-c", "\"\""+java+"\" -jar packwiz-installer-bootstrap.jar \""+url+"\"\"");
+            builder.command("/bin/sh", "-c", cmd);
         }
         builder.directory(new File(path));
 
